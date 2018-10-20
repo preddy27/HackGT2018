@@ -1,7 +1,11 @@
-body {
-background-color: #FFFFF7;
+html,  body {
+  text-align: center;
+  background-color: #FFFFF7;
 }
-
+.icon {
+  height: 20px;
+  width: 20px;
+}
 #header {
   background-color:#BFD7EA;
   border-radius: 15px;

@@ -3,9 +3,13 @@
 <html>
 <head>
   <title> Information </title>
-  <link rel="stylesheet" href="../styles/infopage.css"></link>
+  <link rel="stylesheet" href="../styles/infoStyles.css"></link>
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 </head>
 <body>
+  <div id="header">
+    <h1>Poll It!</h1>
+  </div>
   {% if results.voting_choice == "regular" %}
     <div class="pollingLocation regular">
       <h3>{{results.election_name}}<br>Don't forget to vote on {{results.day}}</h3>
