@@ -5,6 +5,9 @@
   <title> Information </title>
 </head>
 <body>
-  <p>{{results}}</p>
+  <p>{% for item in results.contests %}
+      {{item.office}}<br>
+    {% endfor %}
+  </p>
 </body>
 </html>
