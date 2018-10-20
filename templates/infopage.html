@@ -6,8 +6,47 @@
   <link rel="stylesheet" href="../styles/infopage.css"></link>
 </head>
 <body>
-  <h3>{{results.election_name}}<br>Don't forget to vote on {{results.day}}</h3>
-  <p>Your polling location:<br>{{results.polling_name}}<br>{{results.polling_address}}</p>
+  {% if results.voting_choice == "regular" %}
+    <div class="pollingLocation regular">
+      <h3>{{results.election_name}}<br>Don't forget to vote on {{results.day}}</h3>
+      <p>Your polling location:<br>{{results.polling_name}}<br>{{results.polling_address}}
+      <br>Polling hours: {{results.polling_hours}}</p>
+    </div>
+  {% endif %}
+  {% if results.voting_choice == "early" %}
+    <div class="pollingLocation early">
+      <h3>{{results.election_name}}<br>Don't forget to vote by {{results.day}}</h3>
+      <p>Your early polling location(s):<br></p>
+      {% for location in results.early_vote %}
+        <p>{{location.address.locationName|title}}<br>
+        {{location.address.line1}}, {{location.address.city}}, {{location.address.state}} {{location.address.zip}}
+        {% autoescape false %}
+          <br>Polling hours: {{ location.pollingHours | replace("\n", "<br/>") }}</p>
+        {% endautoescape %}
+      {% endfor %}
+    </div>
+  {% endif %}
+  {% if results.voting_choice == "absentee" %}
+  <div class="pollingLocation early">
+    <h3>{{results.election_name}}<br>Don't forget to vote by {{results.day}}</h3>
+    <p>Your drop off location(s):<br></p>
+    {% for location in results.dropOffLocations %}
+      <p>{{location.address.locationName|title}}<br>
+      {{location.address.line1}}, {{location.address.city}}, {{location.address.state}} {{location.address.zip}}
+      {% autoescape false %}
+        <br>Polling hours: {{ location.pollingHours | replace("\n", "<br/>") }}</p>
+      {% endautoescape %}
+    {% endfor %}
+  </div>
+  {% endif %}
+  {% if results.voting_choice == "no_absentee" %}
+  <div class="pollingLocation early">
+    <h3>{{results.election_name}}<br>Don't forget to vote on {{results.day}}</h3>
+    <p>Could not find any information on absentee voting, but here is your regular polling place!
+    <p>Your polling location:<br>{{results.polling_name}}<br>{{results.polling_address}}
+    <br>Polling hours: {{results.polling_hours}}</p>
+  </div>
+  {% endif %}
   <p>On your ballot:<br></p>
   {% for item in results.contests %}
     <p>{{item.office}}<br>

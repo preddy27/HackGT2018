@@ -24,7 +24,7 @@ class HomePage(webapp2.RequestHandler):
         self.response.write(main_template.render())
 
 class InfoPage(webapp2.RequestHandler):
-    def sort_info(self, json_results):
+    def sort_info(self, json_results, voting_choice):
         voter_info = {}
 
         voter_info['election_name'] = json_results['election']['name']
@@ -40,6 +40,7 @@ class InfoPage(webapp2.RequestHandler):
 
         location = json_results['pollingLocations'][0]
         voter_info['polling_name'] = location['address']['locationName'].title()
+        voter_info['polling_hours'] = location['pollingHours']
         line1 = location['address']['line1']
         city = location['address']['city']
         state = location['address']['state']
@@ -50,11 +51,21 @@ class InfoPage(webapp2.RequestHandler):
 
         voter_info['contests'] = json_results['contests']
 
+        voter_info['voting_choice'] = voting_choice
+        voter_info['early_vote'] = json_results['earlyVoteSites']
+        if 'dropOffLocations' in json_results:
+            voter_info['dropOffLocations'] = json_results['dropOffLocations']
+        else:
+            voter_info['voting_choice'] = 'no_absentee'
+
         return voter_info
 
 
     def post(self):
         user_address = self.request.get('address')
+        voting_choice = self.request.get('votingType')
+        print voting_choice
+
         url = "https://www.googleapis.com/civicinfo/v2/voterinfo"
         api_key = 'AIzaSyBTh58yBdRemPRhsEsJ4PipEGKqdHUY_XA'
 
@@ -62,7 +73,7 @@ class InfoPage(webapp2.RequestHandler):
         res = requests.get(url, params=payload) #json results about the voters infopage
         json_res = json.loads(res.text)
 
-        json_res = self.sort_info(json_res)
+        json_res = self.sort_info(json_res, voting_choice)
 
         res_dict = {'results': json_res}
 

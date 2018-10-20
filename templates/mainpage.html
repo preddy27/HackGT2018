@@ -8,18 +8,17 @@
   <div class="container">
     <form method="post" action="/info">
       <input type="text" name="address" id="address" placeholder="address"></input>
-
+      <label>Political Affiliation</label>
       <select name="politicalParty">
-        <option value="Political Affiliation">Political Affiliation</option>
         <option value="Democrat">Democrat</option>
         <option value="Republican">Republican</option>
-        <option value="Third Party/Neither">Third Party</option>
+        <option value="Unaffiliated">Unaffiliated</option>
       </select>
 
       <div class="votingType">
-        <input type="radio" value="Regular Voting"> Regular Voting<br>
-        <input type="radio" value="Early Voting"> Early Voting<br>
-        <input type="radio" value="Absentee Ballot"> Absentee Ballot
+        <input type="radio" value="regular" name="votingType">Regular Voting<br>
+        <input type="radio" value="early" name="votingType">Early Voting<br>
+        <input type="radio" value="absentee" name="votingType">Absentee Ballot
       </div>
 
       <input type="submit" class="btn" value="Submit"></input>
