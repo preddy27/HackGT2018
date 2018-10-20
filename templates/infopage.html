@@ -3,6 +3,7 @@
 <html>
 <head>
   <title> Information </title>
+  <link rel="stylesheet" href="../styles/infopage.css"></link>
 </head>
 <body>
   <h3>{{results.election_name}}<br>Don't forget to vote on {{results.day}}</h3>
@@ -11,8 +12,13 @@
   {% for item in results.contests %}
     <p>{{item.office}}<br>
     {% for candidate in item.candidates %}
-      {{candidate.name}} - {{candidate.party}}<br>
-      {% endfor %}</p>
+      {{candidate.name}} - {{candidate.party}}
+      {% for channel in candidate.channels %}
+        {% if channel.type == "Twitter" %}
+          <a href="{{channel.id}}"><img class="twitter" src="https://s18955.pcdn.co/wp-content/uploads/2017/05/Twitter.png" /></a>
+        {% endif %}
+      {% endfor %}<br>
+    {% endfor %}</p>
   {% endfor %}
   </p>
 </body>
