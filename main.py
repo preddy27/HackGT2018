@@ -15,6 +15,14 @@ jinja_current_directory = jinja2.Environment(
     extensions = ['jinja2.ext.autoescape'],
     autoescape = True)
 
+class HomePage(webapp2.RequestHandler):
+    def get(self):
+        # render the home screen
+        main = jinja_current_directory.get_template('templates/mainpage.html')
+        self.response.write(main_template.render())
+    def post(self):
+        #gonna write some code later that does stuff with the address
+
 app = webapp2.WSGIApplication([
     ('/', HomePage)
 ], debug=True)
