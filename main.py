@@ -17,8 +17,8 @@ jinja_current_directory = jinja2.Environment(
 
 class HomePage(webapp2.RequestHandler):
     def get(self):
-        # render the home screen
-        main = jinja_current_directory.get_template('templates/mainpage.html')
+        # render the main page
+        main_template = jinja_current_directory.get_template('templates/mainpage.html')
         self.response.write(main_template.render())
     def post(self):
         #gonna write some code later that does stuff with the address
