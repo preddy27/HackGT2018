@@ -1,8 +1,9 @@
 import webapp2
 import os
+import os.path
 import jinja2
-import ast
-from google.appengine.api import urlfetch
+# import ast
+# from google.appengine.api import urlfetch
 import requests
 import requests_toolbelt.adapters.appengine
 import json
@@ -24,6 +25,8 @@ class HomePage(webapp2.RequestHandler):
 class InfoPage(webapp2.RequestHandler):
     def post(self):
         #gonna write some code later that does stuff with the address
+        info_template = jinja_current_directory.get_template('templates/infopage.html')
+        self.response.write(info_template.render())
 
 app = webapp2.WSGIApplication([
     ('/', HomePage),
