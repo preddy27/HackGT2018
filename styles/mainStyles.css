@@ -1,3 +1,15 @@
 body {
+background-color: #FFFFF7;
+}
 
+#header {
+  background-color:#BFD7EA;
+  border-radius: 15px;
+  height: 150px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  font-family: 'Pacifico', cursive;
+  color: white
+  font-size: 20px;
 }
