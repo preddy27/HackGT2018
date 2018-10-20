@@ -7,6 +7,7 @@ import jinja2
 import requests
 import requests_toolbelt.adapters.appengine
 import json
+from datetime import datetime
 
 # Use the App Engine Requests adapter. This makes sure that Requests uses URLFetch.
 requests_toolbelt.adapters.appengine.monkeypatch()
@@ -27,7 +28,9 @@ class InfoPage(webapp2.RequestHandler):
         voter_info = {}
 
         voter_info['election_name'] = json_results['election']['name']
-        voter_info['day'] = json_results['election']['electionDay']
+        date = json_results['election']['electionDay']
+        date = datetime.strptime(date, '%Y-%m-%d')
+        voter_info['day'] = date.strftime('%B %d, %Y')
         line1 = json_results['normalizedInput']['line1']
         city = json_results['normalizedInput']['city']
         state = json_results['normalizedInput']['state']
@@ -36,7 +39,7 @@ class InfoPage(webapp2.RequestHandler):
         voter_info['user_address'] = user_address
 
         location = json_results['pollingLocations'][0]
-        voter_info['polling_name'] = location['address']['locationName']
+        voter_info['polling_name'] = location['address']['locationName'].title()
         line1 = location['address']['line1']
         city = location['address']['city']
         state = location['address']['state']

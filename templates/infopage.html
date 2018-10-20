@@ -5,9 +5,15 @@
   <title> Information </title>
 </head>
 <body>
-  <p>{% for item in results.contests %}
-      {{item.office}}<br>
-    {% endfor %}
+  <h3>{{results.election_name}}<br>Don't forget to vote on {{results.day}}</h3>
+  <p>Your polling location:<br>{{results.polling_name}}<br>{{results.polling_address}}</p>
+  <p>On your ballot:<br></p>
+  {% for item in results.contests %}
+    <p>{{item.office}}<br>
+    {% for candidate in item.candidates %}
+      {{candidate.name}} - {{candidate.party}}<br>
+      {% endfor %}</p>
+  {% endfor %}
   </p>
 </body>
 </html>
