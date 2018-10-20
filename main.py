@@ -2,8 +2,6 @@ import webapp2
 import os
 import os.path
 import jinja2
-# import ast
-# from google.appengine.api import urlfetch
 import requests
 import requests_toolbelt.adapters.appengine
 import json
@@ -24,7 +22,7 @@ class HomePage(webapp2.RequestHandler):
         self.response.write(main_template.render())
 
 class InfoPage(webapp2.RequestHandler):
-    def sort_info(self, json_results, voting_choice):
+    def sort_info(self, json_results, voting_choice, party):
         voter_info = {}
 
         voter_info['election_name'] = json_results['election']['name']
@@ -52,11 +50,14 @@ class InfoPage(webapp2.RequestHandler):
         voter_info['contests'] = json_results['contests']
 
         voter_info['voting_choice'] = voting_choice
+        voter_info['party'] = party
+
         voter_info['early_vote'] = json_results['earlyVoteSites']
-        if 'dropOffLocations' in json_results:
-            voter_info['dropOffLocations'] = json_results['dropOffLocations']
-        else:
-            voter_info['voting_choice'] = 'no_absentee'
+        if voting_choice == 'absentee':
+            if 'dropOffLocations' in json_results:
+                voter_info['dropOffLocations'] = json_results['dropOffLocations']
+            else:
+                voter_info['voting_choice'] = 'no_absentee'
 
         return voter_info
 
@@ -64,7 +65,7 @@ class InfoPage(webapp2.RequestHandler):
     def post(self):
         user_address = self.request.get('address')
         voting_choice = self.request.get('votingType')
-        print voting_choice
+        party = self.request.get('politicalParty')
 
         url = "https://www.googleapis.com/civicinfo/v2/voterinfo"
         api_key = 'AIzaSyBTh58yBdRemPRhsEsJ4PipEGKqdHUY_XA'
@@ -73,7 +74,7 @@ class InfoPage(webapp2.RequestHandler):
         res = requests.get(url, params=payload) #json results about the voters infopage
         json_res = json.loads(res.text)
 
-        json_res = self.sort_info(json_res, voting_choice)
+        json_res = self.sort_info(json_res, voting_choice, party)
 
         res_dict = {'results': json_res}
 
