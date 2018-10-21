@@ -1,6 +1,10 @@
 html,  body {
   text-align: center;
   background-color: #FFFFF7;
+  font-family: helvetica;
+}
+a {
+  display: inline-block;
 }
 
 p {
@@ -8,8 +12,9 @@ p {
 }
 
 .icon {
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  width: 25px;
+  vertical-align: middle;
 }
 #header {
   background-color:#BFD7EA;

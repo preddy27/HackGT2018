@@ -1,5 +1,6 @@
 body {
 background-color: #FFFFF7;
+font-family: helvetica;
 }
 
 #header {
@@ -18,6 +19,15 @@ background-color: #FFFFF7;
   text-align: center;
 }
 
+label {
+  font-size: 16pt;
+}
+
+select {
+  font-size: 12pt;
+  height: 30px;
+}
+
 input[type=text], select {
     width: 10%;
     padding: 12px 20px;
@@ -27,6 +37,7 @@ input[type=text], select {
     border-radius: 20px;
     box-sizing: border-box;
     display: inline-block;
+    font-size: 10pt;
 }
 input[type=text] {
     -webkit-transition: width 0.4s ease-in-out;
@@ -39,10 +50,11 @@ input[type=text]:focus {
 
 .shell {
     position: relative;
-    padding-left: 35px;
+    padding-left: 30px;
+    padding-right: 20px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 20px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -95,6 +107,7 @@ input[type=text]:focus {
 	background: white;
 }
 
+<<<<<<< HEAD
 .select-items div,.select-selected {
   color: #ffffff;
   padding: 8px 16px;
@@ -103,4 +116,8 @@ input[type=text]:focus {
   cursor: pointer;
   user-select: none;
   border-radius: 20px;
+=======
+input[type='submit'] {
+  font-size: 16pt;
+>>>>>>> 121bef01b06dc0036d7b4036ceefa83e161d2fc3
 }
