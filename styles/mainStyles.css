@@ -19,7 +19,7 @@ background-color: #FFFFF7;
 }
 
 input[type=text], select {
-    width: 20%;
+    width: 10%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -27,6 +27,14 @@ input[type=text], select {
     border-radius: 20px;
     box-sizing: border-box;
     display: inline-block;
+}
+input[type=text] {
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 20%;
 }
 
 .shell {
@@ -85,4 +93,14 @@ input[type=text], select {
 	height: 8px;
 	border-radius: 50%;
 	background: white;
+}
+
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 20px;
 }

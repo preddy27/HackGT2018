@@ -4,7 +4,7 @@
 <head>
   <title> Information </title>
   <link rel="stylesheet" href="../styles/infoStyles.css"></link>
-  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Capriola|Pacifico" rel="stylesheet">
 </head>
 <body>
   <div id="header">
@@ -13,14 +13,14 @@
   {% if results.voting_choice == "regular" %}
     <div class="pollingLocation regular">
       <h3>{{results.election_name}}<br>Don't forget to vote on {{results.day}}</h3>
-      <p>Your polling location:<br>{{results.polling_name}}<br>{{results.polling_address}}
+      <p><span class="boldtext">Your polling location:</span><br>{{results.polling_name}}<br>{{results.polling_address}}
       <br>Polling hours: {{results.polling_hours}}</p>
     </div>
   {% endif %}
   {% if results.voting_choice == "early" %}
     <div class="pollingLocation early">
       <h3>{{results.election_name}}<br>Don't forget to vote by {{results.day}}</h3>
-      <p>Your early polling location(s):<br></p>
+      <p class = "boldtext">Your early polling location(s):<br></p>
       {% for location in results.early_vote %}
         <p>{{location.address.locationName|title}}<br>
         {{location.address.line1}}, {{location.address.city}}, {{location.address.state}} {{location.address.zip}}
@@ -33,7 +33,7 @@
   {% if results.voting_choice == "absentee" %}
   <div class="pollingLocation early">
     <h3>{{results.election_name}}<br>Don't forget to vote by {{results.day}}</h3>
-    <p>Your drop off location(s):<br></p>
+    <p class="boldtext">Your drop off location(s):<br></p>
     {% for location in results.dropOffLocations %}
       <p>{{location.address.locationName|title}}<br>
       {{location.address.line1}}, {{location.address.city}}, {{location.address.state}} {{location.address.zip}}
@@ -47,12 +47,12 @@
   <div class="pollingLocation early">
     <h3>{{results.election_name}}<br>Don't forget to vote on {{results.day}}</h3>
     <p>Could not find any information on absentee voting, but here is your regular polling place!
-    <p>Your polling location:<br>{{results.polling_name}}<br>{{results.polling_address}}
+    <p><span class="boldtext">Your polling location: </span><br>{{results.polling_name}}<br>{{results.polling_address}}
     <br>Polling hours: {{results.polling_hours}}</p>
   </div>
   {% endif %}
   {% if results.party == 'democrat' %}
-    <p>On your ballot:<br></p>
+    <p id = "ballot" class = "boldtext">On your ballot:<br></p>
     {% for item in results.contests %}
       <p>{{item.office}}<br>
       {% for candidate in item.candidates %}
@@ -75,7 +75,7 @@
         {% endif %}
       {% endfor %}</p>
       {% if item.type == "Referendum" %}
-        <p>Referendum {{item.referendumTitle}}<br>
+        <p><span class="boldtext">Referendum {{item.referendumTitle}}</span><br>
           {{item.referendumSubtitle}}<br>
           {{item.referendumText}}
         </p>
@@ -83,7 +83,7 @@
     {% endfor %}
   {% endif %}
   {% if results.party == 'republican' %}
-    <p>On your ballot:<br></p>
+    <p class = "boldtext">On your ballot:<br></p>
     {% for item in results.contests %}
       <p>{{item.office}}<br>
       {% for candidate in item.candidates %}
@@ -106,7 +106,7 @@
         {% endif %}
       {% endfor %}</p>
       {% if item.type == "Referendum" %}
-        <p>Referendum {{item.referendumTitle}}<br>
+        <p><span class="boldtext">Referendum {{item.referendumTitle}}</span><br>
           {{item.referendumSubtitle}}<br>
           {{item.referendumText}}
         </p>
@@ -114,7 +114,7 @@
     {% endfor %}
   {% endif %}
   {% if results.party == 'unaffiliated' %}
-    <p>On your ballot:<br></p>
+    <p class = "boldtext">On your ballot:<br></p>
     {% for item in results.contests %}
       <p>{{item.office}}<br>
       {% for candidate in item.candidates %}
@@ -135,7 +135,7 @@
         {% endfor %}<br>
       {% endfor %}</p>
       {% if item.type == "Referendum" %}
-        <p>Referendum {{item.referendumTitle}}<br>
+        <p><span class="boldtext">Referendum {{item.referendumTitle}}</span><br>
           {{item.referendumSubtitle}}<br>
           {{item.referendumText}}
         </p>

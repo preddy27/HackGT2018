@@ -2,6 +2,11 @@ html,  body {
   text-align: center;
   background-color: #FFFFF7;
 }
+
+p {
+  font-family: 'Myriad Pro', sans-serif;
+}
+
 .icon {
   height: 20px;
   width: 20px;
@@ -16,4 +21,12 @@ html,  body {
   font-family: 'Pacifico', cursive;
   color: #FF5A5F;
   font-size: 30px;
+}
+
+h3 {
+  font-family: 'Capriola', sans-serif;
+
+}
+.boldtext{
+  font-family: 'Capriola', sans-serif;
 }
