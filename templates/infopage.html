@@ -75,10 +75,8 @@
         {% endif %}
       {% endfor %}</p>
       {% if item.type == "Referendum" %}
-        <p><strong>Referendum {{item.referendumTitle}}<br></strong>
+        <strong><p><span class="boldtext">Referendum {{item.referendumTitle}}</span><br></strong>
           {{item.referendumSubtitle}}<br><br>
-        <p><span class="boldtext">Referendum {{item.referendumTitle}}</span><br>
-          {{item.referendumSubtitle}}<br>
           {{item.referendumText}}
         </p>
       {% endif %}
@@ -108,10 +106,8 @@
         {% endif %}
       {% endfor %}</p>
       {% if item.type == "Referendum" %}
-        <p><strong>Referendum {{item.referendumTitle}}</strong><br>
+      <strong><p><span class="boldtext">Referendum {{item.referendumTitle}}</span><br></strong>
           {{item.referendumSubtitle}}<br><br>
-      <p><span class="boldtext">Referendum {{item.referendumTitle}}</span><br>
-          {{item.referendumSubtitle}}<br>
           {{item.referendumText}}
         </p>
       {% endif %}
@@ -139,8 +135,8 @@
         {% endfor %}<br>
       {% endfor %}</p>
       {% if item.type == "Referendum" %}
-        <p><span class="boldtext">Referendum {{item.referendumTitle}}</span><br>
-          {{item.referendumSubtitle}}<br>
+        <strong><p><span class="boldtext">Referendum {{item.referendumTitle}}</span><br></strong>
+          {{item.referendumSubtitle}}<br><br>
           {{item.referendumText}}
         </p>
       {% endif %}
