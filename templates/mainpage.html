@@ -1,19 +1,43 @@
 <!--welcome.html-->
 <!DOCTYPE html>
 <html>
+<style>
+#map {
+  height: 25%;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 25%;
+  margin: 0;
+  padding: 0;
+}
+</style>
 <head>
+<<<<<<< HEAD
+  <title>Welcome</title>
+  <link rel="stylesheet" href="../styles/mainStyles.css">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+=======
   <title> Welcome </title>
     <link rel="stylesheet" href="../styles/mainStyles.css">
-  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Capriola|Pacifico" rel="stylesheet">
+>>>>>>> cee7248d88b53e950aef8ee5580dd7d1629ddcde
 </head>
 <body>
   <div id="header">
     <h1>Poll It!</h1>
   </div>
   <div class="container">
+<<<<<<< HEAD
     <br><form method="post" action="/info">
-      <input type="text" name="address"  id="address" placeholder=" Enter your address"class = "box"></input>
+      <input type="text" name="address"  id="address" placeholder="Enter your address"class = "box"></input>
       <br><br>
+=======
+    <form method="post" action="/info">
+      <div id="locationField">
+      <input type="text" name="address" id="autocomplete" placeholder="Enter Your Address" onFocus="geolocate()" ></input>
+      </div>
+>>>>>>> cee7248d88b53e950aef8ee5580dd7d1629ddcde
       <label>Political Affiliation</label>
       <br>
       <select name="politicalParty" placeholder="Political Affiliation"  class = "box">
@@ -42,6 +66,41 @@
     </form>
 
   </div>
+  <div id="map"></div>
+  <script>
+  // var placeSearch, autocomplete;
+  // function initAutocomplete() {
+  //       // Create the autocomplete object, restricting the search to geographical
+  //       // location types.
+  //       autocomplete = new google.maps.places.Autocomplete(
+  //           /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+  //           {types: ['geocode']});
+  //
+  //       // When the user selects an address from the dropdown, populate the address
+  //       // fields in the form.
+  //       autocomplete.addListener('place_changed', fillInAddress);
+  // }
+  // function fillInAddress() {
+  // // Get the place details from the autocomplete object.
+  // var place = autocomplete.getPlace();
+  // }
+  // function geolocate() {
+  //    if (navigator.geolocation) {
+  //      navigator.geolocation.getCurrentPosition(function(position) {
+  //        var geolocation = {
+  //          lat: position.coords.latitude,
+  //          lng: position.coords.longitude
+  //        };
+  //        var circle = new google.maps.Circle({
+  //          center: geolocation,
+  //          radius: position.coords.accuracy
+  //        });
+  //        autocomplete.setBounds(circle.getBounds());
+  //      });
+  //    }
+  //  }
+ </script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AAIzaSyD_bqFP5ZW61OEnfurPUDMUTPTvfzYJm4g&libraries=places&callback=initAutocomplete"
+      async defer></script> -->
 </body>
-<script type="text/javascript" src="../scripts/autocomplete.js"></script>
 </html>

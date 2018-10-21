@@ -1,11 +1,16 @@
 html,  body {
   text-align: center;
   background-color: #FFFFF7;
-  font-family: helvetica;
+  font-family: 'Myriad Pro', sans-serif;
 }
 a {
   display: inline-block;
 }
+
+p {
+  font-family: 'Myriad Pro', sans-serif;
+}
+
 .icon {
   height: 25px;
   width: 25px;
@@ -21,4 +26,12 @@ a {
   font-family: 'Pacifico', cursive;
   color: #FF5A5F;
   font-size: 30px;
+}
+
+h3 {
+  font-family: 'Capriola', sans-serif;
+
+}
+.boldtext{
+  font-family: 'Capriola', sans-serif;
 }
