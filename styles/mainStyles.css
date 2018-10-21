@@ -29,7 +29,7 @@ select {
 }
 
 input[type=text], select {
-    width: 10%;
+    width: 13%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -107,7 +107,6 @@ input[type=text]:focus {
 	background: white;
 }
 
-<<<<<<< HEAD
 .select-items div,.select-selected {
   color: #ffffff;
   padding: 8px 16px;
@@ -116,8 +115,8 @@ input[type=text]:focus {
   cursor: pointer;
   user-select: none;
   border-radius: 20px;
-=======
+}
+
 input[type='submit'] {
   font-size: 16pt;
->>>>>>> 121bef01b06dc0036d7b4036ceefa83e161d2fc3
 }
