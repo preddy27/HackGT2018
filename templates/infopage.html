@@ -13,11 +13,7 @@
   {% if results.voting_choice == "regular" %}
     <div class="pollingLocation regular">
       <h3>{{results.election_name}}<br>Don't forget to vote on {{results.day}}</h3>
-<<<<<<< HEAD
       <p><span class="boldtext">Your polling location:</span><br>{{results.polling_name}}<br>{{results.polling_address}}
-=======
-      <p><strong>Your polling location:</strong><br>{{results.polling_name}}<br>{{results.polling_address}}
->>>>>>> 121bef01b06dc0036d7b4036ceefa83e161d2fc3
       <br>Polling hours: {{results.polling_hours}}</p>
     </div>
   {% endif %}
@@ -56,11 +52,7 @@
   </div>
   {% endif %}
   {% if results.party == 'democrat' %}
-<<<<<<< HEAD
     <p id = "ballot" class = "boldtext">On your ballot:<br></p>
-=======
-    <p><strong>On your ballot:<br></strong></p>
->>>>>>> 121bef01b06dc0036d7b4036ceefa83e161d2fc3
     {% for item in results.contests %}
       <p><strong>{{item.office}}</strong><br>
       {% for candidate in item.candidates %}
@@ -83,11 +75,7 @@
         {% endif %}
       {% endfor %}</p>
       {% if item.type == "Referendum" %}
-<<<<<<< HEAD
         <p><span class="boldtext">Referendum {{item.referendumTitle}}</span><br>
-=======
-        <p><strong>Referendum {{item.referendumTitle}}<br></strong>
->>>>>>> 121bef01b06dc0036d7b4036ceefa83e161d2fc3
           {{item.referendumSubtitle}}<br>
           {{item.referendumText}}
         </p>
@@ -95,11 +83,7 @@
     {% endfor %}
   {% endif %}
   {% if results.party == 'republican' %}
-<<<<<<< HEAD
     <p class = "boldtext">On your ballot:<br></p>
-=======
-    <p><strong>On your ballot:<br></strong></p>
->>>>>>> 121bef01b06dc0036d7b4036ceefa83e161d2fc3
     {% for item in results.contests %}
       <p><strong>{{item.office}}</strong><br>
       {% for candidate in item.candidates %}
@@ -122,11 +106,7 @@
         {% endif %}
       {% endfor %}</p>
       {% if item.type == "Referendum" %}
-<<<<<<< HEAD
         <p><span class="boldtext">Referendum {{item.referendumTitle}}</span><br>
-=======
-        <p><strong>Referendum {{item.referendumTitle}}</strong><br>
->>>>>>> 121bef01b06dc0036d7b4036ceefa83e161d2fc3
           {{item.referendumSubtitle}}<br>
           {{item.referendumText}}
         </p>
@@ -134,11 +114,7 @@
     {% endfor %}
   {% endif %}
   {% if results.party == 'unaffiliated' %}
-<<<<<<< HEAD
     <p class = "boldtext">On your ballot:<br></p>
-=======
-    <p><strong>On your ballot:<br></strong></p>
->>>>>>> 121bef01b06dc0036d7b4036ceefa83e161d2fc3
     {% for item in results.contests %}
       <p><strong>{{item.office}}</strong><br>
       {% for candidate in item.candidates %}
@@ -159,13 +135,8 @@
         {% endfor %}<br>
       {% endfor %}</p>
       {% if item.type == "Referendum" %}
-<<<<<<< HEAD
         <p><span class="boldtext">Referendum {{item.referendumTitle}}</span><br>
           {{item.referendumSubtitle}}<br>
-=======
-        <p><strong>Referendum {{item.referendumTitle}}</strong><br>
-          {{item.referendumSubtitle}}<br><br>
->>>>>>> 121bef01b06dc0036d7b4036ceefa83e161d2fc3
           {{item.referendumText}}
         </p>
       {% endif %}
