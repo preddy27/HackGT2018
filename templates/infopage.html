@@ -13,14 +13,15 @@
   {% if results.voting_choice == "regular" %}
     <div class="pollingLocation regular">
       <h3>{{results.election_name}}<br>Don't forget to vote on {{results.day}}</h3>
-      <p><span class="boldtext">Your polling location:</span><br>{{results.polling_name}}<br>{{results.polling_address}}
+      <strong><p><span class="boldtext">Your polling location:</span><br></strong>
+        {{results.polling_name}}<br>{{results.polling_address}}
       <br>Polling hours: {{results.polling_hours}}</p>
     </div>
   {% endif %}
   {% if results.voting_choice == "early" %}
     <div class="pollingLocation early">
       <h3>{{results.election_name}}<br>Don't forget to vote by {{results.day}}</h3>
-      <p class = "boldtext">Your early polling location(s):<br></p>
+      <strong><p class = "boldtext">Your early polling location(s):<br></p></strong>
       {% for location in results.early_vote %}
         <p>{{location.address.locationName|title}}<br>
         {{location.address.line1}}, {{location.address.city}}, {{location.address.state}} {{location.address.zip}}
@@ -33,7 +34,7 @@
   {% if results.voting_choice == "absentee" %}
   <div class="pollingLocation early">
     <h3>{{results.election_name}}<br>Don't forget to vote by {{results.day}}</h3>
-    <p class="boldtext">Your drop off location(s):<br></p>
+    <strong><p class="boldtext">Your drop off location(s):<br></p></strong>
     {% for location in results.dropOffLocations %}
       <p>{{location.address.locationName|title}}<br>
       {{location.address.line1}}, {{location.address.city}}, {{location.address.state}} {{location.address.zip}}
@@ -47,12 +48,13 @@
   <div class="pollingLocation early">
     <h3>{{results.election_name}}<br>Don't forget to vote on {{results.day}}</h3>
     <p>Could not find any information on absentee voting, but here is your regular polling place!
-    <p><span class="boldtext">Your polling location: </span><br>{{results.polling_name}}<br>{{results.polling_address}}
+    <strong><p><span class="boldtext">Your polling location: </span><br></strong>
+      {{results.polling_name}}<br>{{results.polling_address}}
     <br>Polling hours: {{results.polling_hours}}</p>
   </div>
   {% endif %}
   {% if results.party == 'democrat' %}
-    <p id = "ballot" class = "boldtext">On your ballot:<br></p>
+    <strong><p id = "ballot" class = "boldtext">On your ballot:<br></p></strong>
     {% for item in results.contests %}
       <p><strong>{{item.office}}</strong><br>
       {% for candidate in item.candidates %}
@@ -83,7 +85,7 @@
     {% endfor %}
   {% endif %}
   {% if results.party == 'republican' %}
-  <p class = "boldtext">On your ballot:<br></p>
+  <strong><p class = "boldtext">On your ballot:<br></p></strong>
     {% for item in results.contests %}
     <p><strong>{{item.office}}</strong><br>
       {% for candidate in item.candidates %}
@@ -114,7 +116,7 @@
     {% endfor %}
   {% endif %}
   {% if results.party == 'unaffiliated' %}
-  <p class = "boldtext">On your ballot:<br></p>
+  <strong><p class = "boldtext">On your ballot:<br></p></strong>
     {% for item in results.contests %}
       <p><strong>{{item.office}}</strong><br>
       {% for candidate in item.candidates %}
