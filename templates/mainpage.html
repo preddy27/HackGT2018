@@ -12,28 +12,31 @@
   </div>
   <div class="container">
     <form method="post" action="/info">
-      <input type="text" name="address"  id="address" placeholder="address"></input>
+      <input type="text" name="address"  id="address" placeholder="address"class = "box"></input>
       <br>
       <label>Political Affiliation</label>
-<<<<<<< HEAD
       <br>
-      <select name="politicalParty" class="party-select">
-        <option value="Democrat">Democrat</option>
-        <option value="Republican">Republican</option>
-        <option value="Unaffiliated">Unaffiliated</option>
-=======
-      <select name="politicalParty">
+      <select name="politicalParty" placeholder="Political Affiliation"  class = "box">
         <option value="democrat">Democrat</option>
         <option value="republican">Republican</option>
         <option value="unaffiliated">Unaffiliated</option>
->>>>>>> b2a4741fdbe1bf9ff60a0015168bda2718552977
       </select>
 
       <div class="votingType">
-        <input type="radio" value="regular" name="votingType">Regular Voting<br>
-        <input type="radio" value="early" name="votingType">Early Voting<br>
+        <label class="shell">
+        <input type="radio" value="regular" name="votingType">Regular Voting
+        <span class="checkmark"></span>
+        </label>
+        <label class="shell">
+        <input type="radio" value="early" name="votingType">Early Voting
+        <span class="checkmark"></span>
+        </label>
+        <label class="shell">
         <input type="radio" value="absentee" name="votingType">Absentee Ballot
+        <span class="checkmark"></span>
+        </label>
       </div>
+      <br>
 
       <input type="submit" class="btn" value="Submit"></input>
     </form>

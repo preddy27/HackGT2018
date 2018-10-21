@@ -14,6 +14,10 @@ background-color: #FFFFF7;
   font-size: 30px;
 }
 
+.container{
+  text-align: center;
+}
+
 input[type=text], select {
     width: 20%;
     padding: 12px 20px;
@@ -22,9 +26,10 @@ input[type=text], select {
     border: 1px solid #ccc;
     border-radius: 20px;
     box-sizing: border-box;
+    display: inline-block;
 }
 
-.container {
+.shell {
     position: relative;
     padding-left: 35px;
     margin-bottom: 12px;
@@ -36,13 +41,13 @@ input[type=text], select {
     user-select: none;
 }
 
-.container input {
+.shell input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
 }
 
-/*
+
 .checkmark {
     position: absolute;
     top: 0;
@@ -54,12 +59,12 @@ input[type=text], select {
 }
 
 
-.container:hover input ~ .checkmark {
+.shell:hover input ~ .checkmark {
     background-color: #ccc;
 }
 
-.container input:checked ~ .checkmark {
-    background-color: #BFD7EA;
+.shell input:checked ~ .checkmark {
+    background-color: #FF5A5F;
 }
 
 
@@ -69,11 +74,11 @@ input[type=text], select {
     display: none;
 }
 
-.container input:checked ~ .checkmark:after {
+.shell input:checked ~ .checkmark:after {
     display: block;
 }
 
-.container .checkmark:after {
+.shell .checkmark:after {
  	top: 9px;
 	left: 9px;
 	width: 8px;
