@@ -1,5 +1,6 @@
 body {
 background-color: #FFFFF7;
+font-family: helvetica;
 }
 
 #header {
@@ -12,4 +13,111 @@ background-color: #FFFFF7;
   font-family: 'Pacifico', cursive;
   color: #FF5A5F;
   font-size: 30px;
+}
+
+.container{
+  text-align: center;
+}
+
+label {
+  font-size: 16pt;
+}
+
+select {
+  font-size: 12pt;
+  height: 30px;
+}
+
+input[type=text], select {
+    width: 10%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 10pt;
+}
+input[type=text] {
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 20%;
+}
+
+.shell {
+    position: relative;
+    padding-left: 30px;
+    padding-right: 20px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.shell input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+
+.shell:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.shell input:checked ~ .checkmark {
+    background-color: #FF5A5F;
+}
+
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.shell input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.shell .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+<<<<<<< HEAD
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 20px;
+=======
+input[type='submit'] {
+  font-size: 16pt;
+>>>>>>> 121bef01b06dc0036d7b4036ceefa83e161d2fc3
 }

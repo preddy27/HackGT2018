@@ -15,7 +15,7 @@ html, body {
 <head>
   <title> Welcome </title>
     <link rel="stylesheet" href="../styles/mainStyles.css">
-  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Capriola|Pacifico" rel="stylesheet">
 </head>
 <body>
   <div id="header">
@@ -24,20 +24,31 @@ html, body {
   <div class="container">
     <form method="post" action="/info">
       <div id="locationField">
-      <input type="text" name="address" id="autocomplete" placeholder="address" onFocus="geolocate()" ></input>
+      <input type="text" name="address" id="autocomplete" placeholder="Enter Your Address" onFocus="geolocate()" ></input>
       </div>
       <label>Political Affiliation</label>
-      <select name="politicalParty">
+      <br>
+      <select name="politicalParty" placeholder="Political Affiliation"  class = "box">
         <option value="democrat">Democrat</option>
         <option value="republican">Republican</option>
         <option value="unaffiliated">Unaffiliated</option>
       </select>
 
       <div class="votingType">
-        <input type="radio" value="regular" name="votingType">Regular Voting<br>
-        <input type="radio" value="early" name="votingType">Early Voting<br>
+        <br><label class="shell">
+        <input type="radio" value="regular" name="votingType">Regular Voting
+        <span class="checkmark"></span>
+        </label>
+        <label class="shell">
+        <input type="radio" value="early" name="votingType">Early Voting
+        <span class="checkmark"></span>
+        </label>
+        <label class="shell">
         <input type="radio" value="absentee" name="votingType">Absentee Ballot
+        <span class="checkmark"></span>
+        </label>
       </div>
+      <br>
 
       <input type="submit" class="btn" value="Submit"></input>
     </form>
